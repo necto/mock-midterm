@@ -13,7 +13,8 @@ public class King extends Piece {
 
     @Override
     protected boolean isPieceMovementValid(Position.Offset offset) {
-        return (Math.abs(offset.horizontal) <= 1) && (Math.abs(offset.vertical) <= 1);
+        return (Math.abs(offset.horizontal) + Math.abs(offset.vertical) != 0) &&
+            (Math.abs(offset.horizontal) <= 1) && (Math.abs(offset.vertical) <= 1);
     }
 
     @Override

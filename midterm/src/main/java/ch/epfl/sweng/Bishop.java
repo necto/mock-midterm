@@ -13,7 +13,8 @@ public class Bishop extends Piece {
 
     @Override
     protected boolean isPieceMovementValid(Position.Offset offset) {
-        return (Math.abs(offset.vertical) == Math.abs(offset.horizontal));
+        return (Math.abs(offset.vertical) != 0) &&
+            (Math.abs(offset.vertical) == Math.abs(offset.horizontal));
     }
 
     @Override
