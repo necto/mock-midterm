@@ -9,6 +9,7 @@ import ch.epfl.sweng.Piece;
 import ch.epfl.sweng.Position;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * This class contains the common behaviour of a test for any chess Piece:
@@ -45,6 +46,26 @@ public abstract class PieceTests<P extends Piece> {
     @Test(expected = InvalidPositionException.class)
     public void testMoveNull() throws InvalidPositionException, InvalidMoveException {
         piece.moveTo(null);
+    }
+
+    @Test
+    public void testCopy() {
+        Piece p2 = piece.copy();
+        assertEquals(p2, piece);
+    }
+
+    @Test
+    public void testEquals() {
+        assertEquals(piece, piece);
+        assertNotEquals(piece, null);
+        assertNotEquals(piece, new Object());
+    }
+
+    @Test
+    public void testSetPosition() {
+        Position newPos = Position.positionIfLegal('a', 1);
+        piece.setPosition(newPos);
+        assertEquals(piece.getPosition(), newPos);
     }
     
     /**
