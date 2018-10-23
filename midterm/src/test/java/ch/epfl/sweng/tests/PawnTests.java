@@ -7,6 +7,7 @@ import ch.epfl.sweng.InvalidMoveException;
 import ch.epfl.sweng.InvalidPositionException;
 import ch.epfl.sweng.Pawn;
 import ch.epfl.sweng.Position;
+import ch.epfl.sweng.PieceType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -39,5 +40,15 @@ public class PawnTests extends PieceTests<Pawn> {
     @Test(expected = InvalidMoveException.class)
     public void testMoveBackwards() throws InvalidMoveException, InvalidPositionException {
         pieceWhite.moveTo('D', 3);
+    }
+
+    @Test(expected = InvalidMoveException.class)
+    public void testInvalidPromote() throws InvalidMoveException {
+        piece.promote(PieceType.PAWN);
+    }
+
+    @Test
+    public void testPromote() throws InvalidMoveException {
+        piece.promote(PieceType.KNIGHT);
     }
 }

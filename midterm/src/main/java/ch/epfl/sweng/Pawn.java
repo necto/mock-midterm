@@ -27,4 +27,12 @@ public class Pawn extends Piece {
     public Pawn copy() {
         return new Pawn(this);
     }
+
+    public Superpiece promote(PieceType targetPiece) throws InvalidMoveException {
+        if (targetPiece == PieceType.PAWN ||
+            targetPiece == PieceType.KING) {
+            throw new InvalidMoveException("You can not promote a pawn to this kind of superpiece");
+        }
+        return new Superpiece(targetPiece, getPosition(), getColor());
+    }
 }
