@@ -25,11 +25,12 @@ public abstract class PieceTests<P extends Piece> {
     /** the piece being tested. You have to set it up in {@link #setUp) **/
     protected P piece = null;
 
+    /** the default test position for your piece **/
+    protected static final Position DEFAULT_POSITION = Position.positionIfLegal('D', 4);
+
     /** the position where you want your test piece to be in **/
     protected Position position = DEFAULT_POSITION;
 
-    /** the default test position for your piece **/
-    protected static final Position DEFAULT_POSITION = Position.positionIfLegal('d', 4);
 
     @Test(expected = InvalidMoveException.class)
     public void testNoMove() throws InvalidMoveException, InvalidPositionException {

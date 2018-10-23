@@ -21,11 +21,11 @@ public class PawnTests extends PieceTests<Pawn> {
 
     @Override
     public void testLegal() throws InvalidMoveException, InvalidPositionException {
-        pieceWhite.moveTo('d', 5);
-        assertEquals(pieceWhite.getPosition(), Position.positionIfLegal('d', 5));
+        pieceWhite.moveTo('D', 5);
+        assertEquals(pieceWhite.getPosition(), Position.positionIfLegal('D', 5));
 
-        piece.moveTo('d', 3);
-        assertEquals(piece.getPosition(), Position.positionIfLegal('d', 3));
+        piece.moveTo('D', 3);
+        assertEquals(piece.getPosition(), Position.positionIfLegal('D', 3));
 
         // can't move back: that's how pawns work :)
     }
@@ -33,11 +33,11 @@ public class PawnTests extends PieceTests<Pawn> {
     // testing the case of a black pawn moving upwards
     @Override
     public void testIllegal() throws InvalidMoveException, InvalidPositionException {
-        piece.moveTo('d', 5);
+        piece.moveTo('D', 5);
     }
 
     @Test(expected = InvalidMoveException.class)
     public void testMoveBackwards() throws InvalidMoveException, InvalidPositionException {
-        pieceWhite.moveTo('d', 3);
+        pieceWhite.moveTo('D', 3);
     }
 }
