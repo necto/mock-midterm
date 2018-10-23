@@ -44,7 +44,7 @@ public abstract class Piece {
 
         Position.Offset offset = getPosition().offsetTo(destination);
 
-        if (!offset.isZero())
+        if (offset.isZero())
             throw new InvalidMoveException("A no-op move issued");
 
         if (!isPieceMovementValid(offset))
